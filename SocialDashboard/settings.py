@@ -25,7 +25,13 @@ SECRET_KEY = 'django-insecure-!ktic3e_n$*ol9c4#i$1phdr$5f0tn(3362euwlrdyd=9$z)51
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000',
+    'https://localhost:8000',
+    'https://sd.nik-server.in'
+]
 
 
 # Application definition
