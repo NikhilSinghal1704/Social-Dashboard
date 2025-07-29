@@ -14,18 +14,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include, re_path
-from django.conf import settings
-from django.views.static import serve
+from django.urls import path
+from .views import *
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
-    path('', include('home.urls')),
+    path('', home, name='home'),
+    path("check-username/", check_username_availability, name="check_username"),
 ]
-
-urlpatterns.append(
-    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT})
-)
 
